@@ -35,7 +35,8 @@ function inject (bot) {
 
   bot.pathfinder.getPathTo = function (movements, goal, done, timeout) {
     const p = bot.entity.position
-    const start = new Move(p.x, p.y, p.z, movements.countScaffoldingItems(), 0)
+    const dy = p.y - Math.floor(p.y)
+    const start = new Move(p.x, p.y + (dy > 0.001 ? 1 : 0), p.z, movements.countScaffoldingItems(), 0)
     done(new AStar(start, movements, goal, timeout || bot.pathfinder.thinkTimeout).compute())
   }
 
@@ -291,6 +292,7 @@ function inject (bot) {
       nextPoint.z = np.z
     } else {
       nextPoint.x = Math.floor(nextPoint.x) + 0.5
+      nextPoint.y = nextPoint.y - 1
       nextPoint.z = Math.floor(nextPoint.z) + 0.5
     }
 

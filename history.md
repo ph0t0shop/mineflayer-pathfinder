@@ -1,5 +1,21 @@
 # History
 
+## 1.1.2
+
+* Set every non diggable block automatically from mcdata
+* Fix jumps in snow
+
+## 1.1.1
+
+* Fix 1x1 towering
+* Fix path starting on shorter blocks
+
+## 1.1.0
+
+* Fixed crash with null positions
+* API in the readme
+* Expose movements and goal
+
 ## 1.0.12
 
 * Added `canDig` movements variable
